@@ -10564,6 +10564,8 @@ void SiGetCurrentRegion(CEDAR *c, char *region, UINT region_size)
 		return;
 	}
 
+  return;
+
 	Lock(c->CurrentRegionLock);
 	{
 		StrCpy(region, region_size, c->CurrentRegion);
@@ -10630,7 +10632,7 @@ bool SiIsEnterpriseFunctionsRestrictedOnOpenSource(CEDAR *c)
 
 	if (StrCmpi(region, "JP") == 0 || StrCmpi(region, "CN") == 0)
 	{
-		ret = true;
+		ret = false;
 	}
 
 	return ret;
